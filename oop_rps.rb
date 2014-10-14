@@ -43,8 +43,8 @@ class Game
     @computer = Computer.new("Computer")
   end
 
-  def display_start_msg
-    system('cls')
+  def setup
+    system("clear")
     puts "--------- OOP Rock Paper Scissors Ruby Game---------"
     puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
   end
@@ -59,7 +59,7 @@ class Game
       puts "\nThe computer won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
     end
 
-  def replay_game
+  def replay
     sleep(1)
     puts "\nWould you like to play another round of Rock, Paper, Scissors? (Y/N)"
     play_again_choice = gets.chomp.downcase
@@ -79,11 +79,11 @@ class Game
 end
 
   def play
-    display_start_msg
+    setup
     player.picks_hand
     computer.picks_hand
     compare_hands
-    replay_game
+    replay
   end
 
 end
