@@ -49,15 +49,13 @@ class Game
     puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
   end
 
-  def compare_hands
-    if player.choice == computer.choice
-      puts "\nIt's a Tie! You both picked #{CHOICES[(computer.choice)]} :)"
-    # User Wins
-    elsif (player.choice == 'r' && computer.choice == 's') || (player.choice == 's' && computer.choice == 'p') || (player.choice == 'r' && computer.choice == 'p')
-      puts "\nYou won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
-    else
-      puts "\nThe computer won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
-    end
+  def play
+    setup
+    player.picks_hand
+    computer.picks_hand
+    compare_hands
+    replay
+  end
 
   def replay
     sleep(1)
@@ -76,14 +74,16 @@ class Game
       replay_game
     end
   end
-end
 
-  def play
-    setup
-    player.picks_hand
-    computer.picks_hand
-    compare_hands
-    replay
+  def compare_hands
+    if player.choice == computer.choice
+      puts "\nIt's a Tie! You both picked #{CHOICES[(computer.choice)]} :)"
+    # User Wins
+    elsif (player.choice == 'r' && computer.choice == 's') || (player.choice == 's' && computer.choice == 'p') || (player.choice == 'r' && computer.choice == 'p')
+      puts "\nYou won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
+    else
+      puts "\nThe computer won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
+    end
   end
 
 end
