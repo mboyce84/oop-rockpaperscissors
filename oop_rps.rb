@@ -1,4 +1,4 @@
-# OOP "Paper, Rock, Scissors"
+# Object-oriented "Paper, Rock, Scissors"
 
 # 1. PRS is a game between 2 players. Both players pick a hand of either paper, rock or scissors
 # 2. Next, the two hands are compared for a winner and it's either a tie condition (if both hands are the same) or P>R, R>S and S>P
