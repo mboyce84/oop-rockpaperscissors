@@ -78,7 +78,6 @@ class Game
   def compare_hands
     if player.choice == computer.choice
       puts "\nIt's a Tie! You both picked #{CHOICES[(computer.choice)]} :)"
-    # User Wins
     elsif (player.choice == 'r' && computer.choice == 's') || (player.choice == 's' && computer.choice == 'p') || (player.choice == 'p' && computer.choice == 'r')
       puts "\nYou won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
     else
