@@ -18,7 +18,7 @@ class Human < Player
 
   def picks_hand
     begin
-      print "\nChoose your weapon: (R/P/S) > "
+      print "Choose your weapon: (R/P/S) > "
       self.choice = gets.chomp.downcase
     end until Game::CHOICES.keys.include?(choice)
   end
@@ -45,8 +45,10 @@ class Game
 
   def setup
     system("clear")
-    puts "--------- OOP Rock Paper Scissors Ruby Game---------"
-    puts "\nRules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
+    puts "---------OOP Rock Paper Scissors Ruby Game---------"
+    puts " "
+    puts "Rules: Rock defeats (breaks) Scissors, Scissors defeats (cuts) Paper and Paper defeats (covers) Rock. This game is played against the computer."
+    puts " "
   end
 
   def play
@@ -58,30 +60,29 @@ class Game
   end
 
   def replay
-    sleep(1)
-    puts "\nWould you like to play another round of Rock, Paper, Scissors? (Y/N)"
+    # command-line break from previous step
+    puts " "
+    print "Would you like to play another round of Rock, Paper, Scissors? (Y/N) > "
     play_again_choice = gets.chomp.downcase
     if (play_again_choice == 'y') || (play_again_choice == 'yes')
-      puts "\n---------Time for a rematch!---------\n"
-      sleep(1)
       game = Game.new.play
     elsif (play_again_choice == 'n') || (play_again_choice == 'no')
-      puts "\n---------Thanks for playing!---------\n"
+      puts "---------Thanks for playing!---------"
       exit
     else
-      puts "\nInvalid response entered. Would You Like to Play again? (Y/N)"
-      play_again_choice = gets.chomp.downcase
-      replay_game
+      replay
     end
   end
 
   def compare_hands
+    # command-line break from previous step
+    puts " "
     if player.choice == computer.choice
-      puts "\nIt's a Tie! You both picked #{CHOICES[(computer.choice)]} :)"
+      puts "It's a Tie! You both picked #{CHOICES[(computer.choice)]} :)"
     elsif (player.choice == 'r' && computer.choice == 's') || (player.choice == 's' && computer.choice == 'p') || (player.choice == 'p' && computer.choice == 'r')
-      puts "\nYou won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
+      puts "You won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
     else
-      puts "\nThe computer won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
+      puts "The computer won! You picked #{CHOICES[(player.choice)]} and the computer picked #{CHOICES[(computer.choice)]}."
     end
   end
 
